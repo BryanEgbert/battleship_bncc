@@ -839,7 +839,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "pacman"
+			"value" : "battleship"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION",
@@ -1628,6 +1628,30 @@
 			],
 			"type" : "BOOL",
 			"value" : "OFF"
+		},
+		{
+			"name" : "battleship_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/bryan/repos/pacman_bncc/build/src"
+		},
+		{
+			"name" : "battleship_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/bryan/repos/pacman_bncc/src"
 		},
 		{
 			"name" : "pacman_BINARY_DIR",

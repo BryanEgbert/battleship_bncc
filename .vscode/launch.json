@@ -8,7 +8,7 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/build/pacman",
+			"program": "${workspaceFolder}/build/battleship",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",

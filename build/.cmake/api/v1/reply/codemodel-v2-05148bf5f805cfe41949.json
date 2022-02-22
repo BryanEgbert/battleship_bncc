@@ -41,7 +41,7 @@
 						0,
 						1
 					],
-					"name" : "pacman",
+					"name" : "battleship",
 					"targetIndexes" : 
 					[
 						0
@@ -52,9 +52,9 @@
 			[
 				{
 					"directoryIndex" : 1,
-					"id" : "pacman::@145eef247bfb46b6828c",
-					"jsonFile" : "target-pacman-Debug-f994fa508c4838289c3b.json",
-					"name" : "pacman",
+					"id" : "battleship::@145eef247bfb46b6828c",
+					"jsonFile" : "target-battleship-Debug-97499cb2c4ce7c21bd81.json",
+					"name" : "battleship",
 					"projectIndex" : 0
 				}
 			]
