@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/bryan/repos/pacman_bncc/build"
+			"value" : "/home/bryan/repos/battleship_bncc/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -595,7 +595,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/bryan/repos/pacman_bncc"
+			"value" : "/home/bryan/repos/battleship_bncc"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1639,7 +1639,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/bryan/repos/pacman_bncc/build/src"
+			"value" : "/home/bryan/repos/battleship_bncc/build/src"
 		},
 		{
 			"name" : "battleship_SOURCE_DIR",
@@ -1651,31 +1651,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/bryan/repos/pacman_bncc/src"
-		},
-		{
-			"name" : "pacman_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/bryan/repos/pacman_bncc/build/src"
-		},
-		{
-			"name" : "pacman_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/bryan/repos/pacman_bncc/src"
+			"value" : "/home/bryan/repos/battleship_bncc/src"
 		}
 	],
 	"kind" : "cache",

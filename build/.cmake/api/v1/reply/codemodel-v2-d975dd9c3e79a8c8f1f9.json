@@ -63,8 +63,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/bryan/repos/pacman_bncc/build",
-		"source" : "/home/bryan/repos/pacman_bncc"
+		"build" : "/home/bryan/repos/battleship_bncc/build",
+		"source" : "/home/bryan/repos/battleship_bncc"
 	},
 	"version" : 
 	{
