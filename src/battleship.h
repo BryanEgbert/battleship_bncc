@@ -1,17 +1,36 @@
-#ifndef PACMAN_H
-#define PACMAN_H
+#ifndef BATTLESHIP_H
+#define BATTLESHIP_H
 
 #define MAP_X 10
 #define MAP_Y 10
 #define MAX_BATTLESHIP 4
+#define TOTAL_BATTLESHIP_LEN 14
+
+typedef enum Map
+{
+	EMPTY = 0,
+	BATTLESHIP = 1,
+} Map;
+
+#define BATTLESHIP_MAP BATTLESHIP
+#define EMPTY_MAP EMPTY
+
+typedef struct Player
+{
+	char name[50];
+	char battleshipMap[MAP_Y][MAP_X];
+	char emptyMap[MAP_Y][MAP_X];
+	int ships[MAX_BATTLESHIP];
+	int shipHitCount;
+} Player;
 
 void run();
-void initMap();
-void displayMap();
+void initMap(Player* player);
+void displayMap(Player* player, Map mapType);
 void putBattleship();
-void getPlayerName();
+void initPlayerInfo(Player* player);
 void loadHomePage();
 void startGame();
-void render();
+void playerTurn(int* turn, Player* player1, Player* player2);
 
 #endif
