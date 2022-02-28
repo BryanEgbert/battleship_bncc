@@ -2,12 +2,16 @@
 #define PACMAN_H
 
 #define MAP_X 10
-#define MAX_BYTE 11
 #define MAP_Y 10
+#define MAX_BATTLESHIP 4
 
 void run();
+void initMap();
+void displayMap();
+void putBattleship();
+void getPlayerName();
 void loadHomePage();
-void start_game();
+void startGame();
 void render();
 
 #endif
