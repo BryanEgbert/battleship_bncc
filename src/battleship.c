@@ -28,6 +28,7 @@ void initMap(Player* player)
 	for(int i = 0; i < MAP_Y; ++i)
 		strcpy(player->emptyMap[i], player->battleshipMap[i]);
 }
+
 void displayMap(Player* player, Map mapType)
 {
 	if(mapType)
@@ -55,7 +56,9 @@ void displayMap(Player* player, Map mapType)
 
 void initPlayerInfo(Player* player)
 {
-	printf("Enter player 1 name (max 50 chars.): ");
+	printf("\e[1;1H\e[2J");
+
+	printf("Enter player name (max 50 chars.): ");
 	scanf("%[^\n]", player->name);
 	getchar();
 
@@ -68,7 +71,8 @@ void initPlayerInfo(Player* player)
 
 void putBattleship(Player* player)
 {
-	printf("%s turn\n", player->name);
+	printf("%s's turn\npress any key to continue.\n", player->name);
+	getchar();
 
 	int x, y, i = 0;
 	char pos;
@@ -77,6 +81,8 @@ void putBattleship(Player* player)
 	while(i < MAX_BATTLESHIP)
 	{
 		shipExits = false;
+
+		printf("\e[1;1H\e[2J");
 
 		printf("Battleship lenght: %d\n", player->ships[i]);
 
@@ -119,6 +125,7 @@ void putBattleship(Player* player)
 			if(shipExits)
 			{
 				printf("There's existing ship over there\n");
+				getchar();
 				continue;
 			}
 
@@ -134,6 +141,7 @@ void putBattleship(Player* player)
 			if(shipExits)
 			{
 				printf("There's existing ship over there\n");
+				getchar();
 				continue;
 			}
 
@@ -153,6 +161,8 @@ void startGame() {
 
 	initPlayerInfo(&player1);
 	initPlayerInfo(&player2);
+
+	printf("\e[1;1H\e[2J");
 
 	printf("Put Your Battleships\n");
 	putBattleship(&player1);
@@ -183,6 +193,8 @@ void startGame() {
 
 void playerTurn(int* turn, Player* player1, Player* player2)
 {
+	system("clear");
+
 	int x, y;
 
 	if(*turn % 2 != 0)
