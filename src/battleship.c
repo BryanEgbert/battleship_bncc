@@ -10,9 +10,9 @@ void run()
 	startGame();
 }
 
-void initMap(Player* player)
+void initMap(Player* player, const char* fileLocation)
 {
-	FILE *file = fopen("map.txt", "r");
+	FILE *file = fopen(fileLocation, "r");
 
 	if (file == NULL)
 	{
@@ -156,7 +156,7 @@ void putBattleship(Player* player)
 void startGame() {
 	Player player1, player2;
 
-	initMap(&player1);
+	initMap(&player1, "map.txt");
 	memcpy(&player2, &player1, sizeof(player1));
 
 	initPlayerInfo(&player1);

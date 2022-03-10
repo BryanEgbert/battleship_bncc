@@ -18,14 +18,14 @@ typedef enum Map
 typedef struct Player
 {
 	char name[50];
-	char battleshipMap[MAP_Y][MAP_X];
-	char emptyMap[MAP_Y][MAP_X];
+	char battleshipMap[11][11];
+	char emptyMap[11][11];
 	int ships[MAX_BATTLESHIP];
 	int shipHitCount;
 } Player;
 
 void run();
-void initMap(Player* player);
+void initMap(Player* player, const char* fileLocation);
 void displayMap(Player* player, Map mapType);
 void putBattleship();
 void initPlayerInfo(Player* player);
