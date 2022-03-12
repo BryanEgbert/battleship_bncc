@@ -155,7 +155,9 @@ void hitCoordinate(int* turn, Player* player1, Player* player2, Coordinate* coor
 			{
 				player1->emptyMap[y][x] = 'O';
 				player1->shipHitCount++;
+
 				printf("You hit a ship\n");
+				getchar();
 			}
 			else
 				player1->emptyMap[y][x] = 'X';
@@ -169,7 +171,9 @@ void hitCoordinate(int* turn, Player* player1, Player* player2, Coordinate* coor
 			{
 				player2->emptyMap[y][x] = 'O';
 				player2->shipHitCount++;
+
 				printf("You hit a ship\n");
+				getchar();
 			}
 			else
 				player2->emptyMap[y][x] = 'X';
@@ -179,7 +183,7 @@ void hitCoordinate(int* turn, Player* player1, Player* player2, Coordinate* coor
 
 void playerTurn(int *turn, Player *player1, Player *player2)
 {
-	system("clear");
+	printf("\e[1;1H\e[2J");
 
 	Coordinate coordinate;
 
@@ -221,73 +225,93 @@ bool isGameOver(Player* player1, Player* player2)
 	return false;
 }
 
-void startGame() {
-	Player player1, player2;
-	BattleshipPosition battleshipPos;
-
-	int x, y = 0, i = 0;
-	char pos, name[50];
-
-	initMap(&player1, "map.txt");
-	memcpy(&player2, &player1, sizeof(player1));
-
-	printf("\e[1;1H\e[2J");
+void enterPlayerNamePhase(Player* player1, Player* player2)
+{
+	char name[50];
 
 	printf("Enter player 1 name (max 50 chars.): ");
 	scanf("%[^\n]", name);
 	getchar();
-	initPlayerInfo(&player1, name);
+	initPlayerInfo(player1, name);
 
 	printf("\e[1;1H\e[2J");
 
 	printf("Enter player 2 name (max 50 chars.): ");
 	scanf("%[^\n]", name);
 	getchar();
-	initPlayerInfo(&player2, name);
+	initPlayerInfo(player2, name);
+}
 
+void putBattleshipPhase(Player *player1, Player *player2, BattleshipPosition *battleshipPos)
+{
 	printf("\e[1;1H\e[2J");
 	printf("Put Your Battleships\n");
 
-	printf("%s's turn\npress any key to continue.\n", player1.name);
+	int i = 0;
+
+	printf("%s's turn\npress any key to continue.\n", player1->name);
 	getchar();
 	while (i < MAX_BATTLESHIP)
 	{
 		printf("\e[1;1H\e[2J");
-		printf("Battleship lenght: %d\n", player1.ships[i]);
+		printf("Battleship lenght: %d\n", player1->ships[i]);
 
-		getBattleshipPosInput(&player1, &battleshipPos);
+		getBattleshipPosInput(player1, battleshipPos);
 
-		if (putBattleshipIsAllowed(&player1, &battleshipPos, &i))
+		if (putBattleshipIsAllowed(player1, battleshipPos, &i))
 			++i;
 	}
 
 	i = 0;
 
-	printf("%s's turn\npress any key to continue.\n", player2.name);
+	printf("\e[1;1H\e[2J");
+	printf("%s's turn\npress any key to continue.\n", player2->name);
 	getchar();
 	while (i < MAX_BATTLESHIP)
 	{
 		printf("\e[1;1H\e[2J");
-		printf("Battleship lenght: %d\n", player2.ships[i]);
+		printf("Battleship lenght: %d\n", player2->ships[i]);
 
-		getBattleshipPosInput(&player2, &battleshipPos);
+		getBattleshipPosInput(player2, battleshipPos);
 
-		if (putBattleshipIsAllowed(&player2, &battleshipPos, &i))
+		if (putBattleshipIsAllowed(player2, battleshipPos, &i))
 			++i;
 	}
+}
 
+void attackPhase(Player *player1, Player *player2)
+{
 	printf("Attack a coordinate\n");
 
 	int turn = 0;
 
-	while(true) 
+	while (true)
 	{
-		playerTurn(&turn, &player1, &player2);
-
-		if (isGameOver(&player1, &player2))
-			break;
-	}
 		turn++;
+		playerTurn(&turn, player1, player2);
+
+		if (isGameOver(player1, player2))
+			break;
+
+	}
+}
+
+void startGame()
+{
+	Player player1, player2;
+	BattleshipPosition battleshipPos;
+
+	int x, y = 0, i = 0;
+	char pos;
+
+	initMap(&player1, "map.txt");
+	memcpy(&player2, &player1, sizeof(player1));
+
+	printf("\e[1;1H\e[2J");
+
+	enterPlayerNamePhase(&player1, &player2);
+	putBattleshipPhase(&player1, &player2, &battleshipPos);
+	attackPhase(&player1, &player2);
 }
 
 void loadHomePage() 

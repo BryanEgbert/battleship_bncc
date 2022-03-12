@@ -51,6 +51,10 @@ void hitCoordinate(int* turn, Player* player1, Player* player2, Coordinate* coor
 bool isGameOver(Player* player1, Player* player2);
 void playerTurn(int* turn, Player* player1, Player* player2);
 
+void enterPlayerNamePhase(Player* player1, Player* player2);
+void putBattleshipPhase(Player* player1, Player* player2, BattleshipPosition* battleshipPos);
+void attackPhase(Player* player1, Player* player2);
+
 void loadHomePage();
 void startGame();
 

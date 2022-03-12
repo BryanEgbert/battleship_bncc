@@ -81,6 +81,7 @@ TEST(battleshipTest, putBattleshipAllowanceTest)
 	EXPECT_EQ(output, 0) << "Function output is not as expected";
 }
 
+// Need to press enter when this test run die to buffering
 TEST(battleshipTest, playerTurnTest)
 {
 	Player player1, player2;
