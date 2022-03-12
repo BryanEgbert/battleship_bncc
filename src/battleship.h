@@ -6,6 +6,8 @@
 #define MAX_BATTLESHIP 4
 #define TOTAL_BATTLESHIP_LEN 14
 
+#include <stdbool.h>
+
 typedef enum Map
 {
 	EMPTY = 0,
@@ -24,13 +26,33 @@ typedef struct Player
 	int shipHitCount;
 } Player;
 
-void run();
+typedef struct Coordinate
+{
+	int x, y;
+} Coordinate;
+
+typedef struct BattleshipPosition
+{
+	Coordinate coordinate;
+	char pos;
+} BattleshipPosition;
+
 void initMap(Player* player, const char* fileLocation);
+void initPlayerInfo(Player* player, const char* playerName);
+
 void displayMap(Player* player, Map mapType);
-void putBattleship();
-void initPlayerInfo(Player* player);
+
+void getCoordinateInput(Coordinate* coordinate);
+void getBattleshipPosInput(Player* player, BattleshipPosition* battleshipPos);
+bool putBattleshipIsAllowed(Player* player, BattleshipPosition* battleshipPos, int* index);
+
+
+void hitCoordinate(int* turn, Player* player1, Player* player2, Coordinate* coordinate);
+bool isGameOver(Player* player1, Player* player2);
+void playerTurn(int* turn, Player* player1, Player* player2);
+
 void loadHomePage();
 void startGame();
-void playerTurn(int* turn, Player* player1, Player* player2);
+
 
 #endif

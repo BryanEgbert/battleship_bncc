@@ -2,5 +2,5 @@
 #include "battleship.h"
 
 int main() {
-    run();
+    loadHomePage();
 }
