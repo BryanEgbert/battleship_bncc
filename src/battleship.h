@@ -55,8 +55,8 @@ void enterPlayerNamePhase(Player* player1, Player* player2);
 void putBattleshipPhase(Player* player1, Player* player2, BattleshipPosition* battleshipPos);
 void attackPhase(Player* player1, Player* player2);
 
-void loadHomePage();
 void startGame();
+void loadHomePage();
 
 
 #endif

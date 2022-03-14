@@ -301,7 +301,7 @@ void startGame()
 	Player player1, player2;
 	BattleshipPosition battleshipPos;
 
-	int x, y = 0, i = 0;
+	int x, y = 0;
 	char pos;
 
 	initMap(&player1, "map.txt");
